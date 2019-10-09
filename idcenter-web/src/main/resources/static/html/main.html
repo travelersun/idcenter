@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>id中心</title>
+    <title>idcenter</title>
     <script src="../common/import.js"></script>
     <script src="../components/Iders.js"></script>
     <script src="../components/ManagerIders.js"></script>
@@ -40,7 +40,8 @@
             el: '#mainApp',
             data: {
                 titleHtml: `
-                        <span style="font-size: x-large;color: #fff;">配置中心</span>
+                        <i class="iconfont icondeploymentunit" style="font-size: x-large;color: #1cf0b2"></i>
+                        <span style="font-size: x-large;color: #fff;">idcenter</span>
                     `,
                 routes: manager.type === 'ADMIN' ? ADMIN_MANAGER_ROUTES : NORMAL_MANAGER_ROUTES,
                 manager: manager
