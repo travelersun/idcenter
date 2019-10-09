@@ -41,7 +41,7 @@ public class ServerRequester {
     // 获取批量id的url后缀
     private static final String ACQUIRE_IDS_URL_SUFFIX = "/ider/acquireIds";
     // 获取批量id的url
-    private final String acquireIdsUrl;
+    protected final String acquireIdsUrl;
 
     /**
      * 构造服务端请求器
@@ -87,7 +87,7 @@ public class ServerRequester {
     }
 
     // 转换
-    private List<Ids> convert(List<AcquireIdsResult.Ids> idses) {
+    protected List<Ids> convert(List<AcquireIdsResult.Ids> idses) {
         List<Ids> convertedIdses = new ArrayList<>();
         for (AcquireIdsResult.Ids ids : idses) {
             convertedIdses.add(new Ids(ids.getPeriod(), ids.getFactor(), ids.getStartId(), ids.getAmount()));

@@ -8,19 +8,26 @@
         <version>1.4.1.RELEASE</version>
     </parent>
 
-    <artifactId>idcenter-facade</artifactId>
+    <artifactId>idcenter-cloud-web</artifactId>
 
     <properties>
         <!--deploy时跳过本模块-->
         <maven.deploy.skip>true</maven.deploy.skip>
-
     </properties>
 
     <dependencies>
         <dependency>
-            <groupId>org.antframework.common</groupId>
-            <artifactId>ant-common-util</artifactId>
-            <scope>provided</scope>
+            <groupId>org.antframework.idcenter</groupId>
+            <artifactId>idcenter-biz</artifactId>
+            <version>${project.parent.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.antframework.manager</groupId>
+            <artifactId>manager-cloud-web</artifactId>
         </dependency>
     </dependencies>
 </project>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>id中心</title>
+    <script src="../common/import.js"></script>
+    <script src="../components/Iders.js"></script>
+    <script src="../components/ManagerIders.js"></script>
+</head>
+<body>
+<div id="mainApp">
+    <manager-main :title-html="titleHtml"
+                  :routes="routes"
+                  :manager="manager"></manager-main>
+</div>
+<script>
+    // 普通管理员菜单
+    const NORMAL_MANAGER_ROUTES = [{
+        path: '/iders',
+        component: Iders,
+        meta: {
+            title: 'id提供者',
+            icon: 'el-icon-menu'
+        }
+    }];
+    // 超级管理员菜单
+    const ADMIN_MANAGER_ROUTES = Object.assign([], NORMAL_MANAGER_ROUTES);
+    ADMIN_MANAGER_ROUTES.push(GET_MANAGER_MANAGERS_ROUTE(), {
+        path: '/managerIders',
+        component: ManagerIders,
+        meta: {
+            title: '权限',
+            icon: 'el-icon-view'
+        }
+    });
+    // 主页面应用
+    let mainApp;
+    GET_CURRENT_MANAGER(function (manager) {
+        mainApp = new Vue({
+            el: '#mainApp',
+            data: {
+                titleHtml: `
+                        <span style="font-size: x-large;color: #fff;">配置中心</span>
+                    `,
+                routes: manager.type === 'ADMIN' ? ADMIN_MANAGER_ROUTES : NORMAL_MANAGER_ROUTES,
+                manager: manager
+            }
+        });
+    });
+</script>
+</body>
+</html>

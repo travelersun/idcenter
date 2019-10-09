@@ -15,14 +15,19 @@
 
     <name>idcenter</name>
     <description>id生成中心</description>
+    <properties>
+        <maven-resources-plugin.version>2.6</maven-resources-plugin.version>
+    </properties>
 
     <modules>
         <module>idcenter-facade</module>
         <module>idcenter-common</module>
         <module>idcenter-dal</module>
         <module>idcenter-biz</module>
-        <module>idcenter-web</module>
-        <module>idcenter-assemble</module>
+        <!--<module>idcenter-web</module>-->
+	    <module>idcenter-cloud-web</module>
+        <!--<module>idcenter-assemble</module>-->
+        <module>idcenter-cloud-assemble</module>
         <module>idcenter-client</module>
         <module>idcenter-spring-boot-starter</module>
         <module>idcenter-test</module>
@@ -33,6 +38,11 @@
             <dependency>
                 <groupId>org.antframework.manager</groupId>
                 <artifactId>manager-web</artifactId>
+                <version>1.4.1.RELEASE</version>
+            </dependency>
+            <dependency>
+                <groupId>org.antframework.manager</groupId>
+                <artifactId>manager-cloud-web</artifactId>
                 <version>1.4.1.RELEASE</version>
             </dependency>
         </dependencies>

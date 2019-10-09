@@ -49,6 +49,24 @@ public class IdersContext {
         serverRequester = new ServerRequester(serverUrl);
     }
 
+
+
+    /**
+     * 构造id提供者上下文
+     *
+     * @param serverRequester   服务请求器
+     * @param minDuration 最小预留时间（毫秒）
+     * @param maxDuration 最大预留时间（毫秒）
+     */
+    public IdersContext(ServerRequester serverRequester, long minDuration, long maxDuration) {
+        if (serverRequester == null || minDuration < 0 || maxDuration < minDuration) {
+            throw new IllegalArgumentException(String.format("初始化id中心客户端的参数不合法：serverRequester=%s,minDuration=%d,maxDuration=%d", serverRequester, minDuration, maxDuration));
+        }
+        this.minDuration = minDuration;
+        this.maxDuration = maxDuration;
+        this.serverRequester = serverRequester;
+    }
+
     /**
      * 获取id提供者
      *
